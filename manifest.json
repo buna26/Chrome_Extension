@@ -1,0 +1,31 @@
+{
+    "name": "Facebook Text Formatter",
+    "description": "A extension to format text in fb!",
+    "version": "1.0",
+    "manifest_version": 3,
+    "background": {
+      "service_worker": "background.js"
+    },
+    "permissions": ["storage", "activeTab", "notifications", "scripting", "clipboardRead"],
+    "action": {
+      "default_popup": "popup.html",
+      "default_icon": {
+        "128": "/images/icon128.png"
+      }
+    },
+    "icons": {
+      "16": "/images/icon16.png",
+      "48": "/images/icon48.png",
+      "128": "/images/icon128.png"
+    },
+    "host_permissions": ["*://*.facebook.com/*"],
+    "content_scripts": [
+      {
+        
+        "js": ["jquery-3.1.0.min.js", "arrive.js", "content.js"],
+        "matches": ["*://*.facebook.com/*"],
+        "run_at": "document_end"
+      }
+    ]
+  }
+  
